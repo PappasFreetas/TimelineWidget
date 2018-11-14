@@ -15,7 +15,7 @@ define([
     "dojo/html",
     "dojo/_base/event",
     "dojo/text!TimelineJS/widget/template/TimelineJS.html",
-    "https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"
+    "TimelineJS/lib/timeline"
 
 ], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, 
     dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, widgetTemplate, tlJS) {
