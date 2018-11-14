@@ -62,11 +62,33 @@ define([
             
         },
 
-        // Timeline initialization
+        
         _initializeTimeline: function(sheetURL) {
             console.log("_initializeTimeline")
-            this.timeline = new TL.Timeline('timeline-embed',
-            sheetURL);
+
+            // user selected advanced, so we need to pass config options to the timeline
+            if (this.devMode === "advanced") {
+                try {
+                    // convert json string to json object
+                    var jsonString = this.configOptions;
+                    var jsonObj = JSON.parse(jsonString);
+
+                    console.log(jsonString, "JSON String");
+                    console.log(jsonObj, "JSON Object");
+
+                    this.timeline = new TL.Timeline('timeline-embed', sheetURL, jsonObj);
+
+                } catch(e) {
+                    console.log(e);
+
+                    // If the try fails for some reason then we will create timeline without options
+                    this.timeline = new TL.Timeline('timeline-embed', sheetURL);
+                }
+            } else {
+                // user selected basic, so we create timeline without options
+                this.timeline = new TL.Timeline('timeline-embed', sheetURL);
+            }
+            
         },
 
         // Shorthand for running a microflow

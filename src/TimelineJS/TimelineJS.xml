@@ -11,5 +11,19 @@
             <category>General</category>
             <description>Enter the URL of your google sheet following TimelineJS instructions</description>
         </property>
+        <property key="devMode" type="enumeration" defaultValue="basic">
+            <caption>Mode</caption>
+            <category>Advanced</category>
+            <description>Advanced lets you add JSON config options</description>
+            <enumerationValues>
+                <enumerationValue key="basic">Basic</enumerationValue>
+                <enumerationValue key="advanced">Advanced</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="configOptions" type="string" required="false" multiline="true">
+            <caption>Configuration options</caption>
+            <category>Advanced</category>
+            <description>The JSON containing the TimelineJS configuration options</description>
+        </property>
     </properties>
 </widget>
