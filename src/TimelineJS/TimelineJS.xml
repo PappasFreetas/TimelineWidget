@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <widget id="TimelineJS.widget.TimelineJS" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
     <name>TimelineJS</name>
-    <description>The description of this widget.</description>
+    <description>Facilitates using TimelineJS in Mendix</description>
 
     <icon />
 
     <properties>
-        <property key="dummyKey" type="string" required="false" defaultValue="">
-            <caption>Dummy key</caption>
-            <category>Appearance</category>
-            <description>This key was added to make the widget work in the Modeler (needs atleast 1 key). Please change/remove this one</description>
+        <property key="sheetsURL" type="string" required="true" defaultValue="">
+            <caption>Sheets URL</caption>
+            <category>General</category>
+            <description>Enter the URL of your google sheet following TimelineJS instructions</description>
         </property>
     </properties>
 </widget>

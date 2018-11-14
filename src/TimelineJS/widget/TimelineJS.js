@@ -14,10 +14,11 @@ define([
     "dojo/text",
     "dojo/html",
     "dojo/_base/event",
-    "dojo/text!TimelineJS/widget/template/TimelineJS.html"
+    "dojo/text!TimelineJS/widget/template/TimelineJS.html",
+    "https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"
 
 ], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, 
-    dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, widgetTemplate) {
+    dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, widgetTemplate, tlJS) {
     "use strict";
 
     return declare("TimelineJS.widget.TimelineJS", [ _WidgetBase, _TemplatedMixin ], {
@@ -27,13 +28,16 @@ define([
         // Internal variables.
         _handles: null,
         _contextObj: null,
+        timeline: null,
 
         constructor: function () {
             this._handles = [];
+            this.timeline = null;
         },
 
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
+            this._initializeTimeline(this.sheetsURL);
         },
 
         update: function (obj, callback) {
@@ -56,6 +60,13 @@ define([
             logger.debug(this.id + "._updateRendering");
 
             
+        },
+
+        // Timeline initialization
+        _initializeTimeline: function(sheetURL) {
+            console.log("_initializeTimeline")
+            this.timeline = new TL.Timeline('timeline-embed',
+            sheetURL);
         },
 
         // Shorthand for running a microflow
